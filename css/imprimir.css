@@ -1,0 +1,63 @@
+#cabecera, #menu, #lateral, #comentarios {
+  display: none !important;
+}
+
+body, #contenido, #principal, #pie {
+  float: none !important;
+  width: auto !important;
+  margin:  0 !important;
+  padding: 0 !important;
+}
+
+body { font-family: Calibri; font-size: 11pt; line-height: 175%; }
+
+#exa {
+  position: relative;
+  float: none !important;
+  width: auto !important;
+  height: 22cm !important; 
+  /* border: solid; /*
+  overflow: hidden;
+  display: -webkit-box;
+  line-height: 175%;     /* fallback */
+ /* max-height: 32px;      fallback */
+  -webkit-line-clamp: 32; /* number of lines to show */
+  -webkit-box-orient: vertical;  
+  margin: 0cm !important;
+  padding: 3cm 1cm 3cm 5cm !important;  
+  max-height: 20cm !important;
+}
+
+#exa2 {
+    page-break-before: always;
+  /* float: none !important; /*
+  width: auto !important;
+  height: 18cm !important; 
+  border: solid; 
+  overflow: hidden;
+  display: -webkit-box;
+  line-height: 175%;     /* fallback */
+ /* max-height: 32px;      fallback */
+  -webkit-line-clamp: 32; /* number of lines to show */
+  -webkit-box-orient: vertical;  
+  margin-top: 2cm !important;
+  height: 20cm !important;
+  padding: 3cm 1cm 3cm 5cm !important;
+}
+
+#exa3 {
+  page-break-before: always;
+  /* float: none !important; /*
+  width: auto !important;
+  height: 20cm !important; 
+  border: solid; 
+  overflow: hidden;
+  display: -webkit-box;
+  line-height: 175%;     /* fallback */
+ /* max-height: 32px;      fallback */
+  -webkit-line-clamp: 32; /* number of lines to show */
+  -webkit-box-orient: vertical;  
+  margin-top: 2cm !important;
+  height: 20cm !important;
+  padding: 4cm 5cm 3cm 1cm !important;
+}

@@ -1,0 +1,670 @@
+﻿@charset "utf-8";
+/* CSS Document */
+html {
+	background-color:#999; /*con esto evito el bug de webkit*/
+}
+
+body {
+	/*font:62.5% "Trebuchet MS",sans-serif;*/
+	margin:0;
+	background-color: #2a6ca6 !important;
+	/* background-color: #9d2626 !important; */
+	/*background-color:#999;*/
+}
+
+#encabezado {
+	width:700px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-bottom:10px;
+	background-color:#000;
+	padding:10px;
+	-moz-border-radius:0px 0px 12px 12px;
+	border-radius:0px 0px 12px 12px;
+	-moz-box-shadow:0 5px 20px #555;
+	-webkit-box-shadow:0 5px 20px #555;
+	box-shadow:0 5px 20px #555;
+}
+
+#encabezado_salir {
+	color:#EEE;
+	float:right;
+	margin-top:-5px;
+	margin-right:5px;
+}
+
+#encabezado_salir a {
+	color:#EEE;
+	text-decoration:none;
+}
+
+#encabezado_usuario_container {
+	width:350px;
+	border-spacing:0px;
+	padding:0px;
+	position:absolute;
+	top:0px;
+	height:80px;
+	/*background-color:#a00;*/
+	margin-left:180px;
+	vertical-align:middle;
+}
+
+#encabezado_usuario {
+	max-width:345px;
+	border-spacing:0px 1px;
+	float:center;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+#encabezado_usuario th {
+	color:#aaa;
+	padding:0px 1px 0px 8px;
+	background-color:#1a1a1a;
+	-moz-border-radius:6px 0px 0px 6px;
+	border-radius:6px 0px 0px 6px;
+	text-align:right;
+	vertical-align:top;
+	white-space:nowrap;
+	/*background: -moz-linear-gradient(top, #444 0%,#222 100%);
+	background: webkit-linear-gradient(top, #444 0%,#222 100%);
+	background: linear-gradient(top, #444 0%,#222 100%);*/
+}
+
+#encabezado_usuario th span {
+	color:#666;
+}
+
+#encabezado_usuario td {
+	color:#ccc;
+	padding:0px 8px 0px 3px;
+	background-color:#2a2a2a;
+	-moz-border-radius:0px 6px 6px 0px;
+	border-radius:0px 6px 6px 0px;
+	vertical-align:top;
+	/*background: -moz-linear-gradient(top, #555 0%,#222 100%);
+	background: webkit-linear-gradient(top, #555 0%,#222 100%);
+	background: linear-gradient(top, #555 0%,#222 100%);*/
+}
+
+#encabezado_subtitulo {
+	width:700px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-bottom:10px;
+	background-color:#aaa;
+	color:#fff;
+	padding:2px 10px;
+	-moz-border-radius:0px 0px 12px 12px;
+	border-radius:0px 0px 12px 12px;
+	-moz-box-shadow:0 5px 20px #555;
+	-webkit-box-shadow:0 5px 20px #555;
+	box-shadow:0 5px 20px #555;
+}
+
+#encabezado_menu {
+	width:700px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:-5px;
+	margin-bottom:0px;
+	padding:0px 5px 1px 8px;
+	color:#EEE;
+	font-size:11px;
+	font-weight:bold;
+	-webkit-font-smoothing:antialiased;
+	text-shadow:0 1px 2px #333;
+}
+
+#encabezado_menu a {
+	color:#EEE;
+	text-decoration:none;
+	padding:0px 10px 1px 8px;
+}
+
+#encabezado_menu a img {
+	margin-bottom:-1px;
+	margin-left:-3px;
+	padding-right:3px;
+	border:none;
+}
+
+#encabezado_menu a.activo {
+	-moz-border-radius:6px 6px 0px 0px;
+	border-radius:6px 6px 0px 0px;
+	color:#666;
+	text-shadow:none;
+	background-color:#FCFCFC;
+}
+
+#encabezado_menu a.semi-activo {
+	-moz-border-radius:6px 6px 0px 0px;
+	border-radius:6px 6px 0px 0px;
+	background-color:#AAA;
+}
+
+#contenido {
+	/* width: 700px; */
+	background-color: #FCFCFC;
+	padding: 10px;
+	-moz-border-radius: 12px;
+	border-radius: 12px;
+	-moz-box-shadow: 0 5px 20px #555;
+	-webkit-box-shadow: 0 5px 20px #555;
+	box-shadow: 0 5px 20px #555;
+	/*box-shadow:0 5px 20px rgba(0,0,0,0.35); no funciona bien en IE con el behavior */
+	background: -moz-linear-gradient(-45deg, #FCFCFC 0%,#FCFCFC 70%,#DDD 100%);
+	background: -webkit-linear-gradient(-45deg, #FCFCFC 0%,#FCFCFC 70%,#DDD 100%);
+	/* Sin prefijo el ángulo 0 apunta hacia arriba, con prefijo, hacia la derecha. Conclusión: sin prefijo = con prefijo - 90 ...pero resulta que Mozilla esta equivocado, porque además cambia la dirección, entonces es 135 y no -135 (como indica correctamente Microsoft: http://blogs.msdn.com/b/ie/archive/2012/06/25/unprefixed-css3-gradients-in-ie10.aspx ) */
+	background: linear-gradient(135deg, #FCFCFC 0%,#FCFCFC 70%,#DDD 100%);
+	margin-left: auto;
+	margin-right: auto;
+	/* margin-top: 50px !important; */
+}
+
+#pie {
+	width:700px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-bottom:10px;
+	padding:0px 10px;
+	color:#EEE;
+	/*text-shadow:0 1px 2px #555;*/
+}
+
+#pie table {
+	width:100%;
+}
+
+.dialog-con-sombra {
+	-moz-box-shadow:0 5px 20px #333;
+	-webkit-box-shadow:0 5px 20px #333;
+	box-shadow:0 5px 20px #333;
+}
+
+table.formulario th {
+	text-align:right;
+	padding:5px 5px 5px 50px;
+}
+
+/* input[type="text"],select,textarea {
+	-moz-border-radius:3px;
+	border-radius:3px;
+	border:1px solid #9BD;
+	background-image:url(../imagenes/sombra_campo.png);
+	padding:2px 3px;
+	-webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
+	-moz-transition: border linear 0.2s, box-shadow linear 0.2s;
+	-ms-transition: border linear 0.2s, box-shadow linear 0.2s;
+	-o-transition: border linear 0.2s, box-shadow linear 0.2s;
+	transition: border linear 0.2s, box-shadow linear 0.2s;
+} */
+
+/* eliminé los dos hover porque no quedaba bien */
+input:focus,select:focus {
+	border:1px solid #7CE;
+	/* Lamentablemente el box-shadow no funciona en webkit para los select, por lo que para indicar el focus tambien cambio el color del borde (línea de arriba) */
+	-moz-box-shadow:0 0px 5px #5AF;
+	box-shadow:0 0px 5px #5AF;
+	-webkit-box-shadow:0 0px 7px #5AF; /* El box-shadow de webkit es mas "compacto" que el de Firefox, por eso le agrego un par de íxels (y por eso lo pongo después del box-shadow sin prefijo) */
+	outline:none;
+}
+
+input.busqueda {
+	-moz-border-radius:10px;
+	border-radius:10px;
+	padding-left:5px;
+	outline:none;
+}
+
+/*input.busqueda:focus {
+	border:1px solid #689;
+	-moz-box-shadow:none;
+	outline:none;
+}*/
+
+input[readonly],select[disabled] {
+	border:1px solid #9BD;
+	-moz-box-shadow:none;
+	-webkit-box-shadow:none;
+	box-shadow:none;
+	background-image:url(../imagenes/readonly_campo.png);
+}  
+
+input[readonly]:focus {
+	border:1px dashed #9BD;
+	-moz-box-shadow:none;
+	-webkit-box-shadow:none;
+	box-shadow:none;
+	background-image:url(../imagenes/readonly_campo.png);
+}
+
+.tabla_retgan {
+	border-collapse: collapse;
+	width:90%;
+	-moz-box-shadow:0 3px 6px #555;
+	-webkit-box-shadow:0 3px 6px #555;
+	box-shadow:0 3px 6px #555;
+	margin-bottom:10px;
+	border:0px;
+}
+
+.tabla_retgan th {
+	padding:5px 4px 5px 4px;
+	border:0px;
+}
+
+.tabla_retgan th.columna_botones {
+	padding:5px 0px 5px 0px;
+	width:24px;
+}
+
+.tabla_retgan th.columna_importe {
+	/*padding-right:5px;*/
+	text-align:right;
+}
+
+.tabla_retgan td.columna_importe {
+	padding-right:5px;
+	text-align:right;
+}
+
+.tabla_retgan th.columna_nowrap {
+	white-space:nowrap;
+}
+
+.tabla_retgan td.columna_nowrap {
+	white-space:nowrap;
+}
+
+.tabla_retgan td {
+	/*padding:0px 5px 0px 5px;*/
+	text-align:center;
+	border-bottom:1px solid #ddd;
+}
+
+.tabla_retgan td:first-child {
+	padding-left:5px;
+	padding-rigth:3px;
+}
+
+.tabla_retgan div.boton {
+	margin:2px;
+	position:relative;
+	padding: 1px 0;
+	cursor:pointer;
+}
+
+.tabla_retgan div.boton span {
+	/*float:left;*/
+	margin:0 1px;
+}
+
+.tabla_gris tr th, .tabla_gris tr td.ui-widget-header {
+	background-color:#BBBBBB;
+	background-image:none;
+	border:1px solid #AAAAAA;
+}
+
+table.jig_table {
+	border-top:1px solid #1b72d3;
+	/*border-left:1px solid #1b72d3;*/
+	border-right:1px solid #1b72d3;
+	/*border-right:1px solid #ddeaee;*/
+	border-bottom:1px solid #1b72d3;
+	border-collapse:collapse;
+	empty-cells:show;
+}
+
+table.tabla_vista_previa {
+	width:680px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-bottom:10px;
+	background-color:#fff;
+	border:1px solid #999;
+	border-spacing:0px;
+	padding:3px;
+	-moz-border-radius:12px 12px 12px 12px;
+	border-radius:12px 12px 12px 12px;
+}
+
+table.tabla_vista_previa tr th {
+	text-align:center;
+	color:#fff;
+	background-color:#666;
+	padding:3px 10px;
+}
+
+table.tabla_vista_previa tr th:first-child {
+	-moz-border-radius:12px 0px 0px 12px;
+	border-radius:12px 0px 0px 12px;
+}
+
+table.tabla_vista_previa tr th:last-child {
+	-moz-border-radius:0px 12px 12px 0px;
+	border-radius:0px 12px 12px 0px;
+}
+
+table.tabla_vista_previa tr th:only-child {
+	-moz-border-radius:12px 12px 12px 12px;
+	border-radius:12px 12px 12px 12px;
+}
+
+table.tabla_vista_previa tr.encabezado_descripcion_basica_deduccion th {
+	text-align:center;
+	color:#000;
+	font-weight:bold;
+	background-color:#F5F5F5;
+	padding:3px 10px;
+}
+
+table.tabla_vista_previa tr.encabezado_tipo_deduccion th {
+	text-align:center;
+	color:#000;
+	background-color:#CCC;
+	padding:3px 10px;
+}
+
+table.tabla_vista_previa tr td {
+	text-align:center;
+	border-bottom:1px solid #ddd;
+	padding:3px 10px;
+}
+
+table.tabla_vista_previa tr:last-child td {
+	border-bottom:none;
+}
+
+.celda_vista_previa {
+	text-align:center;
+	background-color:#fff;
+	border:1px solid #999;
+	border-spacing:0px;
+	padding:3px;
+	-moz-border-radius:12px 12px 12px 12px;
+	border-radius:12px 12px 12px 12px;
+}
+
+h1 {
+	font-size:16px;
+}
+
+h2 {
+	font-size:14px;
+}
+
+h3 {
+	font-size:12px;
+}
+
+h1 a {
+	text-decoration:none;
+	color:#000;
+}
+
+h1 a:hover {
+	border-bottom:2px solid #ccc;
+}
+
+h1 a:visited {
+	color:#000;
+}
+
+table.tablesorter thead tr th.header {
+	background-repeat: no-repeat;
+	background-position: right bottom;
+	cursor: pointer;
+}
+
+table.tablesorter thead tr th.headerSortUp {
+	background-repeat: no-repeat;
+	background-position: right bottom;
+	background-image: url(../imagenes/asc.gif);
+}
+
+table.tablesorter thead tr th.headerSortDown {
+	background-repeat: no-repeat;
+	background-position: right bottom;
+	background-image: url(../imagenes/desc.gif);
+}
+
+.btn_retgan {
+	padding:.4em 1em .4em 20px; 
+	text-decoration:none;
+	position:relative;
+}
+
+.btn_retgan span.ui-icon {
+	margin:0 5px 0 0;
+	position:absolute;
+	left:.2em;
+	top:50%;
+	margin-top:-8px;
+}
+
+.nuevafila {
+	display:none;
+}
+
+.iconos_grises span.ui-icon, .iconos_grises a.ui-icon {
+	background-image: url(../imagenes/ui-icons_888888_256x240.png);
+}
+
+.iconos_amarillos span.ui-icon, .iconos_amarillos a.ui-icon {
+	background-image: url(../imagenes/ui-icons_ffd27a_256x240.png);
+}
+
+.mensaje_ok {
+	/*height:10px;*/
+	background: #070;
+	-moz-border-radius:6px 6px 6px 6px;
+	border-radius:6px 6px 6px 6px;
+	-moz-box-shadow:0 5px 10px #999;
+	-webkit-box-shadow:0 5px 10px #999;
+	box-shadow:0 5px 10px #999;
+	color:#FFF;
+	padding:2px;
+	font-family: Arial;
+	font-size:12px;
+	font-weight:bold;
+	/*border:1px solid #040;*/
+	text-align:center;
+	vertical-align:middle;
+	/*margin:0 0 12px 0;*/
+}
+
+.mensaje_error {
+	/*height:10px;*/
+	background: #E00;
+	-moz-border-radius:6px 6px 6px 6px;
+	border-radius:6px 6px 6px 6px;
+	-moz-box-shadow:0 5px 10px #999;
+	-webkit-box-shadow:0 5px 10px #999;
+	box-shadow:0 5px 10px #999;
+	color:#FFF;
+	padding:4px 6px 6px 6px;;
+	font-family: Arial;
+	font-size:12px;
+	/*border:1px solid #040;*/
+	text-align:justify;
+	vertical-align:middle;
+	/*margin:0 0 12px 0;*/
+}
+
+.mensaje_error_detalle {
+	/*height:10px;*/
+	margin-top:5px;
+	background: #FFF;
+	-moz-border-radius:6px 6px 4px 4px;
+	border-radius:6px 6px 4px 4px;
+	/*-moz-box-shadow:inset 0 5px 10px #BBB;
+	-webkit-box-shadow:inset 0 5px 10px #BBB;
+	box-shadow:inset 0 5px 10px #BBB;*/
+	color:#000;
+	padding:2px 10px;
+	font-family: Arial;
+	font-size:11px;
+	text-align:left;
+}
+
+.sombra_minima {
+	-moz-box-shadow:0 5px 10px #555;
+	-webkit-box-shadow:0 5px 10px #555;
+	box-shadow:0 5px 10px #555;
+}
+
+.sombra_ultra_minima {
+	border:0px;
+	-moz-box-shadow:0 1px 5px #555;
+	-webkit-box-shadow:0 1px 5px #555;
+	box-shadow:0 1px 5px #555;
+}
+
+.boton_calendario {
+	padding-left:2px;
+	vertical-align:bottom;
+	margin-bottom:2px;
+	cursor:pointer;
+}
+
+#seccion_ayuda {
+	width:680px;
+	background: #EEE;
+	-moz-border-radius:6px 6px 6px 6px;
+	border-radius:6px 6px 6px 6px;
+	color:#666;
+	padding:10px;
+	font-family:Arial;
+	font-size:12px;
+	margin-top:-10px;
+	margin-bottom:20px;
+	/*cursor:pointer;*/
+	overflow:hidden;
+}
+
+#seccion_ayuda a {
+	color:#000;
+	text-decoration:none;
+}
+
+#seccion_ayuda a:hover {
+	color:#888;
+	text-decoration:underline;
+}
+
+.seccion_ayuda_boton {
+	padding-left:8px !important;
+	padding-top:3px !important;
+	padding-bottom:15px !important;
+	overflow:visible !important;
+	cursor:pointer;
+}
+
+#btn_cerrar_ayuda {
+	cursor:pointer;
+}
+
+#seccion_filtro_aplicado {
+	width:680px;
+	background: #EEE;
+	-moz-border-radius:6px 6px 6px 6px;
+	border-radius:6px 6px 6px 6px;
+	color:#666;
+	padding:10px;
+	font-family:Arial;
+	font-size:12px;
+	margin-bottom:20px;
+	overflow:hidden;
+}
+
+#seccion_pendiente_confirmacion {
+	width:680px;
+	background: #FFD;
+	-moz-border-radius:6px 6px 6px 6px;
+	border-radius:6px 6px 6px 6px;
+	box-shadow:inset 0 3px 5px #BB7;
+	color:#664;
+	padding:10px;
+	font-family:Arial;
+	font-size:12px;
+	margin-top:-10px;
+	margin-bottom:20px;
+	overflow:hidden;
+}
+
+#seccion_info {
+	width:680px;
+	background: #FFF3DD;
+	-moz-border-radius:6px 6px 6px 6px;
+	border-radius:6px 6px 6px 6px;
+	box-shadow:inset 0 3px 5px #CA7;
+	color:#664;
+	padding:10px;
+	font-family:Arial;
+	font-size:12px;
+	margin-top:-10px;
+	margin-bottom:20px;
+	overflow:hidden;
+}
+
+#seccion_info a {
+	color:#664;
+	text-decoration:none;
+}
+
+#seccion_info a:hover {
+	color:#976;
+	text-decoration:underline;
+}
+
+.magia {
+	zoom: 1.2; /* En algunas pantallas funciona ok en IE, pero en otras rompe todo*/
+	/*-ms-transform: scale(1.2);
+	-ms-transform-origin: center 0;*/
+	-moz-transform: scale(1.2);
+	-moz-transform-origin: center 0;
+	/*-webkit-transform: scale(1.2);
+	-webkit-transform-origin: center 0;*/ /* En Safari zoom queda mejor, porque el transform rompe el kerning del texto */
+}
+
+.lineas1 td {
+border:1px black solid;
+border-top:3px black solid;
+
+} 
+
+.lineas2 td {
+border:1px black solid;
+
+}
+
+.formError {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    display: block;
+    color: #fff;    
+    z-index: 5000;
+    cursor: pointer;
+    top: 234.84375px;
+    left: 30px;
+    margin-top: 0px;
+    opacity: 0.87;
+    width: 100%;
+    background: #ee0101;
+    position: relative;
+    width: 500px;
+    font-family: tahoma;
+    font-size: 12px;
+    border: 2px solid #ddd;
+    box-shadow: 0 0 6px #000;
+    -moz-box-shadow: 0 0 6px #000;
+    -webkit-box-shadow: 0 0 6px #000;
+    padding: 4px 10px 4px 10px;
+    border-radius: 6px;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+
+}

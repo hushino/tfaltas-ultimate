@@ -1,0 +1,121 @@
+/* CSS Document */
+
+.quicklinks a img {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  z-index: 999;
+}
+
+.quicklinks a:hover {
+  background: #2c77a4;
+  color: #fff
+}
+
+.quicklinks small a {
+  display: inline
+}
+
+.quicklinks ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  z-index: 999;
+}
+
+.quicklinks ul li {
+  float: left;
+  margin: 0;
+  padding: 0;
+  z-index: 999;
+}
+
+.quicklinks ul li.blogmeta {
+  margin-top: 0.5em;
+  z-index: 999;
+}
+
+/* menu 1 */
+
+#wpcombar {
+  /* background: url('/tfaltas/images/wpcombar_bkgx.png') #14568a no-repeat 50% 0;
+  border-bottom: 1px solid #3285ae; */
+ /*  color: #fff; */
+ /*  font: 12px "Lucida Grande", "Lucida Sans Unicode", Tahoma, Verdana; */
+/*   height: 30px; */
+  left: 0;
+  margin: 0;
+  /* position: fixed; */
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background: #2a6ca6;
+}
+
+#wpcombar .menupop a span {
+  background: url('/tfaltas/images/bullet_arrow_down.gif') no-repeat 100% 0;
+  padding-right: 1.5em
+}
+
+#wpcombar .menupop li {
+  float: none;
+  margin: 0;
+  padding: 0
+}
+
+#wpcombar .menupop ul {
+  background: #14568a;
+  border: 1px solid #3285ae;
+  border-width: 0 1px 1px;
+  left: -999em;
+  position: absolute
+}
+
+#wpcombar .quicklinks a, .blogmeta {
+  border: none;
+  color: #c3def1;
+  display: block;
+  font: 12px "Lucida Grande", "Lucida Sans Unicode", Tahoma, Verdana;
+  font-weight: normal;
+  letter-spacing: normal;
+  padding: 0.5em 1em;
+  text-decoration: none
+}
+
+/* menu 2 */
+
+#wpcombar2 {
+  background-color: #14568a;
+  border-bottom: 1px solid #3285ae;
+  height: 36px;
+  left: 0;
+  margin: 0;
+  position: fixed;
+  top: 30px;
+  width: 100%;
+  z-index: 10
+}
+
+#wpcombar2 .menupop a span {
+  background: url('<? bloginfo('wpurl'); ?>/images/bullet_arrow_down.gif') no-repeat 100% 0;
+  padding-right: 1.5em
+}
+
+#wpcombar2 .menupop li {
+  float: none;
+  margin: 0;
+  padding: 0
+}
+
+#wpcombar2 .menupop ul {
+  background: #14568a;
+  border: 1px solid #3285ae;
+  border-width: 0 1px 1px;
+  left: -999em;
+  position: absolute
+}
+
+body {
+  /* padding-top: 32px; */
+}
