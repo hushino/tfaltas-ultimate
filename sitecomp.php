@@ -273,9 +273,9 @@ $totalRows_infracc = mysql_num_rows($infracc);
                 width="16" height="18" alt="" /></a></td>
           <?php
                 //ACORTAR CADENA
-                $rest = substr($row_listadeexptes['INFRACCIONES'], 0, 80). '...';
+                $rest = substr($row_listadeexptes['INFRACCIONES'], 0, 280). '...';
                 $rest2 = substr($row_listadeexptes['INFOBSER'], 0, 40) . '...';
-                ?>
+          ?>
           <td align="right"><?php echo $row_listadeexptes['INFACTA']; ?></td>
           <td colspan="2"><?php echo  $rest; ?></td>
           <td rowspan="2" style="width: 150px"><span style="width: 300px"><?php echo $rest2; ?></span><br>
