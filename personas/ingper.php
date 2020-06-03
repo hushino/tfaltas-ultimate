@@ -188,7 +188,7 @@ $totalRows_oppago = mysql_num_rows($oppago);
 
 <body>
   <?php include('../barra.php'); ?>
-  <div id="contenido">
+  <div id="contenido" class="container-fluid">
     <h5>CARGAR DATOS DE LA INFRACCION
       <!--  Breadcrumb de Navegación (inicio) --> DE TRANSITO</h5>
     <div class="breadCrumbHolder breadCrumbModule">
@@ -199,8 +199,149 @@ $totalRows_oppago = mysql_num_rows($oppago);
 
     <!-- Contenido (inicio) -->
 
+    <div class="row">
+      <form class="text-center p-5" name="formulario" id="formulario" action="<?php echo $editFormAction; ?>"
+        method="POST">
+        <legend class="ui-widget-header ui-corner-all ui-state-highlight" style="padding:1px 10px;" id="grupoContacto">
+          Datos de la Falta Cometida
+        </legend>
+        <div class="col">
+          <label for="basic-url">Seleccionar Dependencia de Origen:</label>
+          <div class="input-group mb-3">
+            <select class="browser-default custom-select" name="deporig" id="deporig">
+              <?php do { ?>
+              <option value="<?php echo $row_depend['IDC'] ?>"><?php echo $row_depend['DETALLES'] ?></option>
+              <?php
+          } while ($row_depend = mysql_fetch_assoc($depend));
+          $rows = mysql_num_rows($depend);
+          if ($rows > 0) {
+              mysql_data_seek($depend, 0);
+              $row_depend = mysql_fetch_assoc($depend);
+          }
+          ?>
+            </select>
+          </div>
+        </div>
+        <div class="col">
+          <label for="basic-url">Acta de Inf. Nº</label>
+          <div class="input-group mb-3">
+            <input name="infacta" required="required" autofocus id="infacta" type="text" required="required"
+              id="infacta" class="form-control" aria-describedby="basic-addon3" onFocusOut="javascript:verificar()"
+              autocomplete="off" />
+            <div id="final"></div>
+          </div>
+        </div>
+        <div class="col">
+          <label for="basic-url">Nº de expediente</label>
+          <div class="input-group mb-3">
+            <input class="form-control" name="IDx" required="required" autofocus type="text" required="required"
+              id="IDxx" />
+          </div>
+        </div>
+        <div class="form-row mb-4">
+          <div class="col">
+            <label for="basic-url">Fecha</label>
+            <div class="input-group">
+              <input class="form-control" name="inffecha" type="date" required="required" id="infdate" />
+            </div>
+          </div>
+          <div class="col">
+            <label for="basic-url">Hora</label>
+            <div class="input-group ">
+              <input class="form-control" name="infhora" type="time" required="required" id="infhora"
+                autocomplete="off" />
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <label for="basic-url">Lugar en que se cometió la falta</label>
+          <div class="input-group mb-3">
+            <input class="form-control" name="influg" type="text" required="required" id="influg" />
+          </div>
+        </div>
+        <div class="col">
+          <label for="basic-url">Infracción</label>
+          <div class="input-group mb-3">
+            <input class="form-control" name="infart" type="text" id="infartx" required="required" />
+          </div>
+        </div>
+
+        <div class="form-row mb-4">
+          <div class="col">
+            <label for="basic-url">Datos del Vehículo:</label>
+            <div class="input-group mb-3">
+              <select class="browser-default custom-select" name="infvehi" id="infvehi">
+                <?php do { ?>
+                <option value="<?php echo $row_opvehi['IDC'] ?>"><?php echo $row_opvehi['DETALLES'] ?></option>
+                <?php
+                             } while ($row_opvehi = mysql_fetch_assoc($opvehi));
+                                    $rows = mysql_num_rows($opvehi);
+                                    if ($rows > 0) {
+                                        mysql_data_seek($opvehi, 0);
+                                        $row_opvehi = mysql_fetch_assoc($opvehi);
+                             }
+                    ?>
+              </select>
+            </div>
+          </div>
+          <div class="col">
+            <label for="basic-url">Dominio</label>
+            <div class="input-group mb-3">
+              <input class="form-control" name="infautopat" type="text" id="infautopat"
+                title="sólo 7 letras o números. Las letras en mayúsculas" maxlength="7"
+                onkeyup="javascript:this.value=this.value.toUpperCase();" autocomplete="off" />
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <label for="basic-url">Oblada</label>
+          <div class="custom-control custom-checkbox">
+            <input value="S" onchange="javascript:showContent()" name="oblada" type="checkbox" id="oblada"
+              class="custom-control-input" title="Marcar si surge pago espontáneo del acta">
+            <label class="custom-control-label" for="oblada">Marcar si surge pago espontáneo del
+              acta</label>
+          </div>
+          <div class="w-100"></div>
+          <div id="contoblada" style="display: none;">
+            <div class="col">
+              <select class="browser-default custom-select" name="infpago" id="infpago">
+                <?php do { ?>
+                <option value="<?php echo $row_oppago['IDC'] ?>"><?php echo $row_oppago['DETALLES'] ?></option>
+                <?php
+                      } while ($row_oppago = mysql_fetch_assoc($oppago));
+                      $rows = mysql_num_rows($oppago);
+                      if ($rows > 0) {
+                      mysql_data_seek($oppago, 0);
+                      $row_oppago = mysql_fetch_assoc($oppago);
+                     }
+                   ?>
+              </select>
+            </div>
+            <div class="col">
+              <label for="basic-url">Recibo</label>
+              <div class="input-group">
+                <input class="form-control" name="obladarec" type="text" id="obladarec"
+                  title="Ingresar el Número de Recibo." />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button type="button" name="button" id="button" onclick="history.back()"
+          class="btn btn-danger btn-rounded">Volver
+        </button>
+
+        <button class="btn btn-success btn-rounded" type="submit" name="submit" id="submit">Ingresar
+          infraccion
+        </button>
+        <input type="hidden" name="MM_insert" value="formulario">
+      </form>
+    </div>
+
     <div id="div_formulario">
-      <form name="formulario" id="formulario" action="<?php echo $editFormAction; ?>" method="POST">
+      <form class="text-center p-5" name="formulario" id="formulario" action="<?php echo $editFormAction; ?>"
+        method="POST">
         <div style="margin-left: auto;">
           <fieldset class="ui-widget ui-widget-content ui-corner-all"
             style="width: 250px; margin-left: auto; margin-right: auto;">
@@ -216,13 +357,13 @@ $totalRows_oppago = mysql_num_rows($oppago);
                       <?php do { ?>
                       <option value="<?php echo $row_depend['IDC'] ?>"><?php echo $row_depend['DETALLES'] ?></option>
                       <?php
-          } while ($row_depend = mysql_fetch_assoc($depend));
-          $rows = mysql_num_rows($depend);
-          if ($rows > 0) {
-              mysql_data_seek($depend, 0);
-              $row_depend = mysql_fetch_assoc($depend);
-          }
-          ?>
+                          } while ($row_depend = mysql_fetch_assoc($depend));
+                          $rows = mysql_num_rows($depend);
+                          if ($rows > 0) {
+                              mysql_data_seek($depend, 0);
+                              $row_depend = mysql_fetch_assoc($depend);
+                          }
+                       ?>
                     </select>
                   </span></td>
               </tr>
@@ -262,13 +403,13 @@ $totalRows_oppago = mysql_num_rows($oppago);
                     <?php do { ?>
                     <option value="<?php echo $row_opvehi['IDC'] ?>"><?php echo $row_opvehi['DETALLES'] ?></option>
                     <?php
-                                    } while ($row_opvehi = mysql_fetch_assoc($opvehi));
+                             } while ($row_opvehi = mysql_fetch_assoc($opvehi));
                                     $rows = mysql_num_rows($opvehi);
                                     if ($rows > 0) {
                                         mysql_data_seek($opvehi, 0);
                                         $row_opvehi = mysql_fetch_assoc($opvehi);
                                     }
-                                    ?>
+                    ?>
                   </select>
                   <b>Dominio</b>:
                   <input name="infautopat" type="text" id="infautopat" style="width:70px; text-transform:uppercase;"
@@ -379,7 +520,8 @@ $totalRows_oppago = mysql_num_rows($oppago);
                       <input name="dirCs" type="text" id="dirCs" style="width:30px;" tabindex="17" autocomplete="off" />
                       <b>&nbsp;&nbsp;&nbsp;Mbk.&nbsp;&nbsp;</b>
                       <input name="dirMbk" type="text" id="dirMbk" style="width:30px;" tabindex="18"
-                        autocomplete="off" /></td>
+                        autocomplete="off" />
+                    </td>
                   </tr>
                   <tr id="filaLocalidad">
                     <th style="width:30px;">Localidad</th>

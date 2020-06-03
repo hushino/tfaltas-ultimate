@@ -8,68 +8,68 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.12.0/js/mdb.min.js"></script>
 -->
 
-<link rel="stylesheet" href="css/fontawesome58all.css">
-<link rel="stylesheet" href="css/fontgooglerobotocss.css">
-<link href="css/mdboostrap/bootstrap.css" rel="stylesheet">
-<link href="css/mdboostrap/mdb.css" rel="stylesheet">
-<script type="text/javascript" src="css/mdboostrap/js/jquery.js"></script>
-<script type="text/javascript" src="css/mdboostrap/js/bootstrap.js"></script>
-<script type="text/javascript" src="css/mdboostrap/js/mdb.js"></script>
+<?php require_once('modules/headerfirst.php'); ?>
 
 <script type="text/javascript">
-function showNav(el) { el.getElementsByTagName('UL')[0].style.left='auto'; }
-function hideNav(el) { el.getElementsByTagName('UL')[0].style.left='-999em'; }
+function showNav(el) {
+  el.getElementsByTagName('UL')[0].style.left = 'auto';
+}
+
+function hideNav(el) {
+  el.getElementsByTagName('UL')[0].style.left = '-999em';
+}
 </script>
 
 
 <div class="quicklinks" id="wpcombar">
-<nav class="navbar navbar-expand-lg navbar-dark">
-  <a class="navbar-brand" href="#">Tribunal de faltas</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" href="/tfaltas/personas/ingper.php">Igresar nueva infracción <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/tfaltas/sitecomp.php">lista de causas</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/tfaltas/exptes/infraclist.php">estadisticas</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/tfaltas/resoluciones/listaderes.php">Resoluciones</a>
-      </li>
-			<li class="nav-item">
-        <a class="nav-link" href="/tfaltas/escritos/escritos.php">Modelos de Escritos</a>
-      </li>
-			<li class="nav-item">
-        <a class="nav-link" href="/tfaltas/pases/pases.php">Pases</a>
-      </li>
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand" href="#">Tribunal de faltas</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="/tfaltas/personas/ingper.php">Igresar nueva infracción <span
+              class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/tfaltas/sitecomp.php">lista de causas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/tfaltas/exptes/infraclist.php">estadisticas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/tfaltas/resoluciones/listaderes.php">Resoluciones</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/tfaltas/escritos/escritos.php">Modelos de Escritos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/tfaltas/pases/pases.php">Pases</a>
+        </li>
 
-			 <!-- Dropdown -->
-			 <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">SUBMENU</a>
-        <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="/tfaltas/productividad.php">Productividad</a>
-          <a class="dropdown-item" href="/tfaltas/siteselecvarios.php">Listas Especiales</a>
-          <a class="dropdown-item" href="/tfaltas/buqrapida.php">busqueda especial</a>
-        </div>
-      </li>
+        <!-- Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">SUBMENU</a>
+          <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="/tfaltas/productividad.php">Productividad</a>
+            <a class="dropdown-item" href="/tfaltas/siteselecvarios.php">Listas Especiales</a>
+            <a class="dropdown-item" href="/tfaltas/buqrapida.php">busqueda especial</a>
+          </div>
+        </li>
 
-			<li class="nav-item">
-        <a class="nav-link" href="/tfaltas/librebusq.php">Libre Deuda</a>
-      </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/tfaltas/librebusq.php">Libre Deuda</a>
+        </li>
 
-		
-			
-    </ul>
-  </div>
-</nav>
+
+
+      </ul>
+    </div>
+  </nav>
 </div>
 
 
@@ -155,5 +155,3 @@ function hideNav(el) { el.getElementsByTagName('UL')[0].style.left='-999em'; }
 	<div id="admin-bar-rightlinks" class="quicklinks" style="position: absolute; right: 0;"><a><?php echo "Hola ". $usur . ", Bienvenido."; ?></a>
 	</div>
 </div> -->
-
-
