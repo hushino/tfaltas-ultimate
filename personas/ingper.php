@@ -203,9 +203,7 @@ $totalRows_oppago = mysql_num_rows($oppago);
 
       <form class="text-center p-5" name="formulario" id="formulario" action="<?php echo $editFormAction; ?>"
         method="POST">
-        <legend class="ui-widget-header ui-corner-all ui-state-highlight" style="padding:1px 10px;" id="grupoContacto">
-          Datos de la Falta Cometida
-        </legend>
+        <p class="h4 mb-4">Datos de la Falta Cometida</p>
         <div class="col">
           <div class="col">
             <label for="basic-url">Seleccionar Dependencia de Origen:</label>
@@ -351,10 +349,8 @@ $totalRows_oppago = mysql_num_rows($oppago);
             </div>
           </div>
         </div>
+        <p class="h4 mb-4">Datos del Infractor</p>
 
-        <legend class="ui-widget-header ui-corner-all ui-state-highlight" style="padding:1px 10px;" id="grupoContacto">
-          Datos del Infractor
-        </legend>
         <div class="col">
           <legend class="ui-widget-header ui-corner-all ui-state-highlight" style="padding:1px 10px;"
             id="grupoContacto">
