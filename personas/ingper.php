@@ -212,13 +212,13 @@ $totalRows_oppago = mysql_num_rows($oppago);
                 <?php do { ?>
                 <option value="<?php echo $row_depend['IDC'] ?>"><?php echo $row_depend['DETALLES'] ?></option>
                 <?php
-          } while ($row_depend = mysql_fetch_assoc($depend));
-          $rows = mysql_num_rows($depend);
-          if ($rows > 0) {
-              mysql_data_seek($depend, 0);
-              $row_depend = mysql_fetch_assoc($depend);
-          }
-          ?>
+                    } while ($row_depend = mysql_fetch_assoc($depend));
+                    $rows = mysql_num_rows($depend);
+                    if ($rows > 0) {
+                        mysql_data_seek($depend, 0);
+                        $row_depend = mysql_fetch_assoc($depend);
+                    }
+                    ?>
               </select>
             </div>
           </div>
