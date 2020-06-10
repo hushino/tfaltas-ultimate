@@ -275,12 +275,12 @@ $totalRows_oppago = mysql_num_rows($oppago);
                   <?php do { ?>
                   <option value="<?php echo $row_opvehi['IDC'] ?>"><?php echo $row_opvehi['DETALLES'] ?></option>
                   <?php
-                             } while ($row_opvehi = mysql_fetch_assoc($opvehi));
-                                    $rows = mysql_num_rows($opvehi);
-                                    if ($rows > 0) {
-                                        mysql_data_seek($opvehi, 0);
-                                        $row_opvehi = mysql_fetch_assoc($opvehi);
-                             }
+                        } while ($row_opvehi = mysql_fetch_assoc($opvehi));
+                            $rows = mysql_num_rows($opvehi);
+                            if ($rows > 0) {
+                              mysql_data_seek($opvehi, 0);
+                              $row_opvehi = mysql_fetch_assoc($opvehi);
+                        }
                     ?>
                 </select>
               </div>
