@@ -17,44 +17,31 @@ $totalRows_depend = mysql_num_rows($depend);
 
 <body>
   <div id="contenido" class="container-fluid">
-    <?php do { ?>
-    <option value="<?php echo $row_depend['vehitipo'] ?>"><?php echo $row_depend['vehitipo'] ?></option>
-    <?php
-                    } while ($row_depend = mysql_fetch_assoc($depend));
+
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Articulo</th>
+          <th scope="col">Tipo de vehiculo</th>
+          <th scope="col">Reincidencia</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php do { ?>
+        <tr>
+          <th scope="row"><?php echo $row_depend['art'] ?></th>
+          <td><?php echo $row_depend['vehitipo'] ?></td>
+          <td><?php echo $row_depend['reinci'] ?></td>
+        </tr>
+        <?php
+        } while ($row_depend = mysql_fetch_assoc($depend));
                     $rows = mysql_num_rows($depend);
                     if ($rows > 0) {
                         mysql_data_seek($depend, 0);
                         $row_depend = mysql_fetch_assoc($depend);
                     }
                     ?>
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">First</th>
-          <th scope="col">Last</th>
-          <th scope="col">Handle</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>Larry</td>
-          <td>the Bird</td>
-          <td>@twitter</td>
-        </tr>
       </tbody>
     </table>
   </div>
