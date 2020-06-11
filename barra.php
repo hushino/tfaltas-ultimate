@@ -22,7 +22,7 @@ function hideNav(el) {
 
 
 <div class="quicklinks" id="wpcombar">
-  <nav class="navbar navbar-expand-lg navbar-dark">
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background: #2a6ca6;">
     <a class="navbar-brand" href="#">Tribunal de faltas</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -48,6 +48,9 @@ function hideNav(el) {
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/tfaltas/pases/pases.php">Pases</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/tfaltas/reincidencias/index.php">Reincidencias</a>
         </li>
 
         <!-- Dropdown -->

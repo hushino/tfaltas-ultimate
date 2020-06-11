@@ -5,8 +5,6 @@ if (!isset($_SESSION)) {
 
 ?>
 
-<?php require_once('../modules/header.php'); ?>
-
 <?php
 mysql_select_db($database_tfx, $tfx);
 $query_depend = "SELECT vehitipo, art, reinci FROM infrac WHERE vehitipo = 'Automotores' OR vehitipo = 'Motocicletas y Motonetas' ORDER BY vehitipo";
@@ -16,9 +14,10 @@ $totalRows_depend = mysql_num_rows($depend);
 ?>
 
 <body>
+  <?php require_once('../modules/header.php'); ?>
+  <?php include('../barra.php'); ?>
+
   <div id="contenido" class="container-fluid">
-
-
     <table class="table">
       <thead>
         <tr>
