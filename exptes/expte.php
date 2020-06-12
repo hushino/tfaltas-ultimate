@@ -49,16 +49,16 @@ if (!((isset($_SESSION['MM_Username'])) && (isAuthorized("", $MM_authorizedUsers
 <?php
 Function stripAccents($String)
 {
-    $String = ereg_replace("[äáàâãª]", "a", $String);
-    $String = ereg_replace("[ÁÀÂÃÄ]", "A", $String);
-    $String = ereg_replace("[ÍÌÎÏ]", "I", $String);
-    $String = ereg_replace("[íìîï]", "i", $String);
-    $String = ereg_replace("[éèêë]", "e", $String);
-    $String = ereg_replace("[ÉÈÊË]", "E", $String);
-    $String = ereg_replace("[óòôõöº]", "o", $String);
-    $String = ereg_replace("[ÓÒÔÕÖ]", "O", $String);
-    $String = ereg_replace("[úùûü]", "u", $String);
-    $String = ereg_replace("[ÚÙÛÜ]", "U", $String);
+    $String = ereg_replace("[ï¿½ï¿½ï¿½ï¿½ï¿½]", "a", $String);
+    $String = ereg_replace("[ï¿½ï¿½ï¿½ï¿½ï¿½]", "A", $String);
+    $String = ereg_replace("[ï¿½ï¿½ï¿½ï¿½]", "I", $String);
+    $String = ereg_replace("[ï¿½ï¿½ï¿½ï¿½]", "i", $String);
+    $String = ereg_replace("[ï¿½ï¿½ï¿½ï¿½]", "e", $String);
+    $String = ereg_replace("[ï¿½ï¿½ï¿½ï¿½]", "E", $String);
+    $String = ereg_replace("[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½]", "o", $String);
+    $String = ereg_replace("[ï¿½ï¿½ï¿½ï¿½ï¿½]", "O", $String);
+    $String = ereg_replace("[ï¿½ï¿½ï¿½ï¿½]", "u", $String);
+    $String = ereg_replace("[ï¿½ï¿½ï¿½ï¿½]", "U", $String);
     return $String;
 }
 
@@ -151,7 +151,7 @@ switch ($cantantec) {
     case '9':
         $antemulti = $cantantec - 2;
         $antepor100 = $antemulti . ' veces ';
-        $xreinciletras = 'más de la cuarta';
+        $xreinciletras = 'mï¿½s de la cuarta';
         $art82rein = '4';
         break;
 
@@ -237,265 +237,272 @@ $totalRows_resolut = mysql_num_rows($resolut);
 ?>
 <!doctype html>
 <html>
+
 <head>
-    <meta charset="utf-8">
-    <title>TFaltas - expediente</title>
+  <meta charset="utf-8">
+  <title>TFaltas - expediente</title>
 
-    <link rel="stylesheet" href="../css/fontawesome58all.css">
-    <link rel="stylesheet" href="../css/fontgooglerobotocss.css">
-    <link href="../css/mdboostrap/bootstrap.css" rel="stylesheet">
-    <link href="../css/mdboostrap/mdb.css" rel="stylesheet">
-    <script type="text/javascript" src="../css/mdboostrap/js/jquery.js"></script>
-    <script type="text/javascript" src="../css/mdboostrap/js/bootstrap.js"></script>
-    <script type="text/javascript" src="../css/mdboostrap/js/mdb.js"></script>
+  <link rel="stylesheet" href="../css/fontawesome58all.css">
+  <link rel="stylesheet" href="../css/fontgooglerobotocss.css">
+  <link href="../css/mdboostrap/bootstrap.css" rel="stylesheet">
+  <link href="../css/mdboostrap/mdb.css" rel="stylesheet">
+  <script type="text/javascript" src="../css/mdboostrap/js/jquery.js"></script>
+  <script type="text/javascript" src="../css/mdboostrap/js/bootstrap.js"></script>
+  <script type="text/javascript" src="../css/mdboostrap/js/mdb.js"></script>
 
-    <link href="../css/tfaltas.css" rel="stylesheet" type="text/css">
-    <link href="../css/barra.css" rel="stylesheet" type="text/css">
-    <script type="text/javascript" src="../js/jquery.js"></script>
-    <script type="text/javascript" src="../js/jquery.min.js"></script>
-    <script type="text/javascript" src="../js/jquery.validaracta.js"></script>
-    <!-- Your Reload Script -->
-    <script type='text/javascript'>
-        $(document).ready(function () {
-            $(window).focus(function () {
-                window.location.reload();
-            });
-        });
-    </script>
+  <link href="../css/tfaltas.css" rel="stylesheet" type="text/css">
+  <link href="../css/barra.css" rel="stylesheet" type="text/css">
+  <script type="text/javascript" src="../js/jquery.js"></script>
+  <script type="text/javascript" src="../js/jquery.min.js"></script>
+  <script type="text/javascript" src="../js/jquery.validaracta.js"></script>
+  <!-- Your Reload Script -->
+  <script type='text/javascript'>
+  $(document).ready(function() {
+    $(window).focus(function() {
+      window.location.reload();
+    });
+  });
+  </script>
 </head>
 
 <body>
-<?php include('../barra.php'); ?>
-<?php // echo $ex2_antecNOM; ?>
-<?php // echo $query_antec; ?>
-<div id="contenido">
+  <?php include('../barra.php'); ?>
+  <?php // echo $ex2_antecNOM; ?>
+  <?php // echo $query_antec; ?>
+  <div id="contenido">
     <fieldset class="ui-widget-header">
-        <legend>Datos de la Causa</legend>
-        <table width="100%" border="1">
-            <tbody>
-            <tr>
-                <td>CARATULA: <a href="../personas/modinf.php?ID=<?php echo $row_causa['ID']; ?>">modificar</a></td>
-                <td>&quot;<?php echo $row_causa['APELLIDOS']; ?>
-                    <?php if ($row_causa['APELLIDOS'] != NULL) { // Show if recordset not empty ?>,
-                    <?php } // Show if recordset not empty ?>
-                    <?php echo $row_causa['NOMBRES']; ?>
-                    <?php if ($row_causa['APELLIDOS'] == NULL) { // Show if recordset not empty ?>
-                        <?php echo $row_causa['INFAUTOPAT']; ?><?php } // Show if recordset not empty ?> S/ Acta de
-                    Infracc. NÂº <?php echo $row_causa['INFACTA']; ?>&quot; Dep.: <?php echo $row_causa['DIOR']; ?></td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td>Expte. NÂº <?php echo $row_causa['EXPTE']; ?> -
-                    AÃ±o <?php $date1 = date_create($row_causa['FECHASIEN']);
+      <legend>Datos de la Causa</legend>
+      <table width="100%" border="1">
+        <tbody>
+          <tr>
+            <td>CARATULA: <a href="../personas/modinf.php?ID=<?php echo $row_causa['ID']; ?>">modificar</a></td>
+            <td>&quot;<?php echo $row_causa['APELLIDOS']; ?>
+              <?php if ($row_causa['APELLIDOS'] != NULL) { // Show if recordset not empty ?>,
+              <?php } // Show if recordset not empty ?>
+              <?php echo $row_causa['NOMBRES']; ?>
+              <?php if ($row_causa['APELLIDOS'] == NULL) { // Show if recordset not empty ?>
+              <?php echo $row_causa['INFAUTOPAT']; ?><?php } // Show if recordset not empty ?> S/ Acta de
+              Infracc. NÂº <?php echo $row_causa['INFACTA']; ?>&quot; Dep.: <?php echo $row_causa['DIOR']; ?></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>Expte. NÂº <?php echo $row_causa['EXPTE']; ?> -
+              AÃ±o <?php $date1 = date_create($row_causa['FECHASIEN']);
                     echo date_format($date1, 'Y'); ?><br><?php $date2 = date_create($row_causa['INFFECHA']);
                     echo 'Fecha de la infracc.: ' . date_format($date2, 'd-m-Y'); ?></td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td><?php if ($row_causa['RETLICE'] === "S") { ?>La licencia de Conducir fue Retenida<?php } ?>
-                    <br><?php echo $row_causa['APELLIDOS']; ?><?php if ($row_causa['APELLIDOS'] != NULL) { ?>, <?php } ?><?php echo $row_causa['NOMBRES']; ?>
-                    . DNI <?php echo $row_causa['DNI']; ?>
-                    <form name="formx" id="formx" action="" method="POST"><input type="hidden" name="valordni"
-                                                                                 id="valordni"
-                                                                                 value="<?php echo $row_causa['DNI']; ?>"/><input
-                                type="hidden" name="expid" id="expid" value="<?php echo $row_causa['ID']; ?>"/></form>
-                    <div id="verper"></div>
-                    <?php if ($row_causa['DNINOMCONST'] != 'V') { ?>
-                        <a href="../personas/verificarperson.php?exp=<?php echo $row_causa['ID']; ?>" target="popup"
-                           onClick="window.open(this.href, this.target,'width=600,height=250'); return false;">Verificar
-                            Datos</a>
-                    <?php } ?>
-                    <?php if ($row_causa['DNINOMCONST'] == 'V') { ?>Identidad Verificada<?php } ?>
-                </td>
-                <td>
-                    <?php if (isset($row_causa['RES_DEFININRO'])) { ?>Resoluci&oacute;n: <?php } ?>
-                    <?php do { ?><?php echo ' Nro. ' . $row_resolut['NRORESOL']; ?>
-                        <br><?php } while ($row_resolut = mysql_fetch_assoc($resolut)); ?>
-                    <?php if ($row_causa['RES_CUMPLI'] == NULL) { ?>
-                        <a href="../personas/carcumpli.php?exp=<?php echo $row_causa['ID']; ?>" target="popup"
-                           onClick="window.open(this.href, this.target,'width=600,height=150'); return false;">cargar
-                            cumplimiento</a>
-                    <?php } ?>
-                    <br>
-                    <?php echo $row_causa['RES_CUMPLI']; ?>
-                    <?php if (isset($row_causa['RES_CUMPLI'])) { ?>
-                        - <a href="../personas/carcumplimod.php?exp=<?php echo $row_causa['ID']; ?>" target="popup"
-                             onClick="window.open(this.href, this.target,'width=600,height=150'); return false;">mod</a>
-                    <?php } ?>
-                </td>
-                <td>
-                    <?php if (isset($row_codema['IDCODE'])) { ?><?php do { ?><?php echo $row_codema['APELLIDOS']; ?>, <?php echo $row_codema['NOMBRES']; ?>;
-                        <a href="../personas/modicodem.php?codemm=<?php echo $row_codema['IDCODE']; ?>" target="popup"
-                           onClick="window.open(this.href, this.target,'width=900,height=400'); return false;">mod</a>
-                        <br>
-                    <?php } while ($row_codema = mysql_fetch_assoc($codema)); ?><?php } ?>
-                    <a href="../personas/cargcodem.php?exp=<?php echo $row_causa['ID']; ?>" target="popup"
-                       onClick="window.open(this.href, this.target,'width=900,height=400'); return false;">Cargar
-                        Coimputado</a></td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td><?php if (isset($row_causa['INFAUTOPAT'])) { // Show if recordset not empty ?>
-                        Patente <?php echo $row_causa['INFAUTOPAT']; ?> - <a
-                                href="../personas/carvehi.php?exp=<?php echo $row_causa['ID']; ?>" target="popup"
-                                onClick="window.open(this.href, this.target,'width=600,height=700'); return false;">cargar
-                            datos del vehiculo</a>
-                        <br> a nombre de: <?php do { ?><?php echo $row_dats['dats_value']; ?>;
-                        <?php } while ($row_dats = mysql_fetch_assoc($dats)); ?>
-                    <?php } // Show if recordset not empty ?></td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td><?php if ($row_causa['RETVEHI'] === "S") { // Show if recordset not empty ?>
-                        EL vehÃ­culo fue Retenido
-                    <?php } // Show if recordset not empty ?></td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td><a href="http://www.cuitonline.com/search.php?q=<?php echo stripAccents($row_causa['HIDXX']); ?>"
-                       TARGET="_blank">Constatar datos del infractor</a></td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td>Presentacion de Escritos
-                    <a href="../personas/cargescritos.php?exp=<?php echo $row_causa['ID']; ?>" target="popup"
-                       onClick="window.open(this.href, this.target,'width=600,height=700'); return false;">cargar
-                        escrito</a><br>
-                    <?php do { ?>
-                        <a href="../personas/modiescritos.php?esc=<?php echo $row_escpresenta['IDESC']; ?>&exp=<?php echo $row_causa['ID']; ?>"
-                           target="popup"
-                           onClick="window.open(this.href, this.target,'width=600,height=700'); return false;"><?php echo $row_escpresenta['ESCTIPO']; ?></a>
-                        <br>
-                    <?php } while ($row_escpresenta = mysql_fetch_assoc($escpresenta)); ?>
-                </td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            </tbody>
-        </table>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td><?php if ($row_causa['RETLICE'] === "S") { ?>La licencia de Conducir fue Retenida<?php } ?>
+              <br><?php echo $row_causa['APELLIDOS']; ?><?php if ($row_causa['APELLIDOS'] != NULL) { ?>,
+              <?php } ?><?php echo $row_causa['NOMBRES']; ?>
+              . DNI <?php echo $row_causa['DNI']; ?>
+              <form name="formx" id="formx" action="" method="POST"><input type="hidden" name="valordni" id="valordni"
+                  value="<?php echo $row_causa['DNI']; ?>" /><input type="hidden" name="expid" id="expid"
+                  value="<?php echo $row_causa['ID']; ?>" /></form>
+              <div id="verper"></div>
+              <?php if ($row_causa['DNINOMCONST'] != 'V') { ?>
+              <a href="../personas/verificarperson.php?exp=<?php echo $row_causa['ID']; ?>" target="popup"
+                onClick="window.open(this.href, this.target,'width=600,height=250'); return false;">Verificar
+                Datos</a>
+              <?php } ?>
+              <?php if ($row_causa['DNINOMCONST'] == 'V') { ?>Identidad Verificada<?php } ?>
+            </td>
+            <td>
+              <?php if (isset($row_causa['RES_DEFININRO'])) { ?>Resoluci&oacute;n: <?php } ?>
+              <?php do { ?><?php echo ' Nro. ' . $row_resolut['NRORESOL']; ?>
+              <br><?php } while ($row_resolut = mysql_fetch_assoc($resolut)); ?>
+              <?php if ($row_causa['RES_CUMPLI'] == NULL) { ?>
+              <a href="../personas/carcumpli.php?exp=<?php echo $row_causa['ID']; ?>" target="popup"
+                onClick="window.open(this.href, this.target,'width=600,height=150'); return false;">cargar
+                cumplimiento</a>
+              <?php } ?>
+              <br>
+              <?php echo $row_causa['RES_CUMPLI']; ?>
+              <?php if (isset($row_causa['RES_CUMPLI'])) { ?>
+              - <a href="../personas/carcumplimod.php?exp=<?php echo $row_causa['ID']; ?>" target="popup"
+                onClick="window.open(this.href, this.target,'width=600,height=150'); return false;">mod</a>
+              <?php } ?>
+            </td>
+            <td>
+              <?php if (isset($row_codema['IDCODE'])) { ?><?php do { ?><?php echo $row_codema['APELLIDOS']; ?>,
+              <?php echo $row_codema['NOMBRES']; ?>;
+              <a href="../personas/modicodem.php?codemm=<?php echo $row_codema['IDCODE']; ?>" target="popup"
+                onClick="window.open(this.href, this.target,'width=900,height=400'); return false;">mod</a>
+              <br>
+              <?php } while ($row_codema = mysql_fetch_assoc($codema)); ?><?php } ?>
+              <a href="../personas/cargcodem.php?exp=<?php echo $row_causa['ID']; ?>" target="popup"
+                onClick="window.open(this.href, this.target,'width=900,height=400'); return false;">Cargar
+                Coimputado</a></td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td><?php if (isset($row_causa['INFAUTOPAT'])) { // Show if recordset not empty ?>
+              Patente <?php echo $row_causa['INFAUTOPAT']; ?> - <a
+                href="../personas/carvehi.php?exp=<?php echo $row_causa['ID']; ?>" target="popup"
+                onClick="window.open(this.href, this.target,'width=600,height=700'); return false;">cargar
+                datos del vehiculo</a>
+              <br> a nombre de: <?php do { ?><?php echo $row_dats['dats_value']; ?>;
+              <?php } while ($row_dats = mysql_fetch_assoc($dats)); ?>
+              <?php } // Show if recordset not empty ?></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td><?php if ($row_causa['RETVEHI'] === "S") { // Show if recordset not empty ?>
+              EL vehÃ­culo fue Retenido
+              <?php } // Show if recordset not empty ?></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td><a href="http://www.cuitonline.com/search.php?q=<?php echo stripAccents($row_causa['HIDXX']); ?>"
+                TARGET="_blank">Constatar datos del infractor</a></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>Presentacion de Escritos
+              <a href="../personas/cargescritos.php?exp=<?php echo $row_causa['ID']; ?>" target="popup"
+                onClick="window.open(this.href, this.target,'width=600,height=700'); return false;">cargar
+                escrito</a><br>
+              <?php do { ?>
+              <a href="../personas/modiescritos.php?esc=<?php echo $row_escpresenta['IDESC']; ?>&exp=<?php echo $row_causa['ID']; ?>"
+                target="popup"
+                onClick="window.open(this.href, this.target,'width=600,height=700'); return false;"><?php echo $row_escpresenta['ESCTIPO']; ?></a>
+              <br>
+              <?php } while ($row_escpresenta = mysql_fetch_assoc($escpresenta)); ?>
+            </td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+        </tbody>
+      </table>
 
     </fieldset>
     <fieldset>
-        <legend>infracciones</legend>
+      <legend>infracciones</legend>
 
-        <table width="100%" border="1">
-            <tbody>
-            <tr>
-                <td>InfracciÃ³n</td>
-                <td>Unidades Tributarias</td>
-                <td>Monto</td>
-                <td>Reduc. 50 %</td>
-            </tr>
-            <?php do { ?>
-                <tr>
-                <td><?php echo $row_montosmultas['INFX']; ?> . ' ___ ' . <?php echo $row_montosmultas['CURSOS']; ?></td>
-                <td align="right"><?php echo $row_montosmultas['UTAC']; ?></td>
-                <td align="right"><?php echo $row_montosmultas['UTX']; ?></td>
-                <td align="right"><?php echo $row_montosmultas['UTX50']; ?></td>
-                </tr>
-            <?php } while ($row_montosmultas = mysql_fetch_assoc($montosmultas)); ?>
-            <tr>
-                <td align="right">Totales</td>
-                <td align="right"><?php echo $row_summultas['UTSUM']; ?></td>
-                <td align="right"><?php echo $row_summultas['UTXSUM']; ?></td>
-                <td align="right"><?php echo $row_summultas['UTX50SUM']; ?></td>
-            </tr>
-            <tr>
-                <td><?php if ($totalRows_antec2 >= 1) { ?><?php echo 'Antecedentes: ' . ($totalRows_antec2 - 1) . ' - - - Reincidencias: ' . $row_canant['sumasC']; ?><?php } ?>
+      <table width="100%" border="1">
+        <tbody>
+          <tr>
+            <td>InfracciÃ³n</td>
+            <td>Unidades Tributarias</td>
+            <td>Monto</td>
+            <td>Reduc. 50 %</td>
+          </tr>
+          <?php do { ?>
+          <tr>
+            <td><?php echo $row_montosmultas['INFX']; ?> . ' ___ ' . <?php echo $row_montosmultas['CURSOS']; ?></td>
+            <td align="right"><?php echo $row_montosmultas['UTAC']; ?></td>
+            <td align="right"><?php echo $row_montosmultas['UTX']; ?></td>
+            <td align="right"><?php echo $row_montosmultas['UTX50']; ?></td>
+          </tr>
+          <?php } while ($row_montosmultas = mysql_fetch_assoc($montosmultas)); ?>
+          <tr>
+            <td align="right">Totales</td>
+            <td align="right"><?php echo $row_summultas['UTSUM']; ?></td>
+            <td align="right"><?php echo $row_summultas['UTXSUM']; ?></td>
+            <td align="right"><?php echo $row_summultas['UTX50SUM']; ?></td>
+          </tr>
+          <tr>
+            <td>
+              <?php if ($totalRows_antec2 >= 1) { ?><?php echo 'Antecedentes: ' . ($totalRows_antec2 - 1) . ' - - - Reincidencias: ' . $row_canant['sumasC']; ?><?php } ?>
 
-                    <?php do { ?><?php if ($row_antec2['INFACTA'] <> $row_causa['INFACTA']) {
+              <?php do { ?><?php if ($row_antec2['INFACTA'] <> $row_causa['INFACTA']) {
                         echo $row_antec2['descrip'];
                     } ?><?php } while ($row_antec2 = mysql_fetch_assoc($antec2)); ?>
-                </td>
-                <td> <?php echo 'multiplicador: ' . $antemulti; ?></td>
-                <td><?php if ($totalRows_canant >= 1) { ?><?php echo '$ ' . ($row_summultas['UTXSUM'] * $antemulti); ?><?php } ?></td>
-                <td>
-                    &nbsp;<?php if ($totalRows_canant >= 1) { ?><?php echo '$ ' . (($row_summultas['UTXSUM'] * $antemulti) / 2); ?><?php } ?></td>
-            </tr>
-            <tr>
-                <td><?php if ($row_causa['OBLADA'] === "S") { ?>Consta que fue Pagada <?php } ?>
-                    <?php if ($row_causa['OBLADA'] === "S") { ?>
-                        <br><?php echo $row_causa['OBLTIP'] . ' Nro '; ?><?php echo $row_causa['OBLANRO']; ?><?php echo $row_causa['OBLAFEC']; ?><?php echo $row_causa['OBLAPORC']; ?><?php } ?>
-                </td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td><?php if ($totalRows_antec >= 1 OR $totalRows_antec2 >= 1) { ?>El infractor tiene los Siguientes antecedentes:
-                        <br> <?php } ?>
-                    <?php do { ?><?php echo $row_antec['descrip']; ?><?php } while ($row_antec = mysql_fetch_assoc($antec)); ?>
-                    <?php do { ?><?php if ($row_antec2['INFACTA'] <> $row_causa['INFACTA']) {
+            </td>
+            <td> <?php echo 'multiplicador: ' . $antemulti; ?></td>
+            <td>
+              <?php if ($totalRows_canant >= 1) { ?><?php echo '$ ' . ($row_summultas['UTXSUM'] * $antemulti); ?><?php } ?>
+            </td>
+            <td>
+              &nbsp;<?php if ($totalRows_canant >= 1) { ?><?php echo '$ ' . (($row_summultas['UTXSUM'] * $antemulti) / 2); ?><?php } ?>
+            </td>
+          </tr>
+          <tr>
+            <td><?php if ($row_causa['OBLADA'] === "S") { ?>Consta que fue Pagada <?php } ?>
+              <?php if ($row_causa['OBLADA'] === "S") { ?>
+              <br><?php echo $row_causa['OBLTIP'] . ' Nro '; ?><?php echo $row_causa['OBLANRO']; ?><?php echo $row_causa['OBLAFEC']; ?><?php echo $row_causa['OBLAPORC']; ?><?php } ?>
+            </td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td><?php if ($totalRows_antec >= 1 OR $totalRows_antec2 >= 1) { ?>El infractor tiene los Siguientes
+              antecedentes:
+              <br> <?php } ?>
+              <?php do { ?><?php echo $row_antec['descrip']; ?><?php } while ($row_antec = mysql_fetch_assoc($antec)); ?>
+              <?php do { ?><?php if ($row_antec2['INFACTA'] <> $row_causa['INFACTA']) {
                         echo $row_antec2['descrip'];
                     } ?><?php } while ($row_antec2 = mysql_fetch_assoc($antec2)); ?>
-                </td>
-                <td></td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            </tbody>
-        </table>
+            </td>
+            <td></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+        </tbody>
+      </table>
 
     </fieldset>
     <fieldset>
-        <legend>Procedimiento de la Causa</legend>
-        <br>
-        CUANDO PRIMERAMENTE NO SURGE EL IMPUTADO:<br><a
-                href="../exptes/provavervehi.php?exp=<?php echo $row_causa['ID']; ?>" target="popup"
-                onClick="window.open(this.href, this.target,'width=600,height=700'); return false;">averiguar de quien
-            es la patente</a> - <a href="../exptes/prov2do.php?exp=<?php echo $row_causa['ID']; ?>" target="popup"
-                                   onClick="window.open(this.href, this.target,'width=600,height=700'); return false;">2do
-            provehido despues de saber patente</a> - <a
-                href="../exptes/prov2doextjur.php?exp=<?php echo $row_causa['ID']; ?>" target="popup"
-                onClick="window.open(this.href, this.target,'width=600,height=700'); return false;">2do provehido
-            despues de saber patente extra&nacute;a jurisdicci&oacute;n</a><br></p>
-        <p>Escritos Automaticos:</p>
-        <?php do { ?>
-            <?php if ($row_escrito['CLASIF'] != $clas) {
+      <legend>Procedimiento de la Causa</legend>
+      <br>
+      CUANDO PRIMERAMENTE NO SURGE EL IMPUTADO:<br><a
+        href="../exptes/provavervehi.php?exp=<?php echo $row_causa['ID']; ?>" target="popup"
+        onClick="window.open(this.href, this.target,'width=600,height=700'); return false;">averiguar de quien
+        es la patente</a> - <a href="../exptes/prov2do.php?exp=<?php echo $row_causa['ID']; ?>" target="popup"
+        onClick="window.open(this.href, this.target,'width=600,height=700'); return false;">2do
+        provehido despues de saber patente</a> - <a
+        href="../exptes/prov2doextjur.php?exp=<?php echo $row_causa['ID']; ?>" target="popup"
+        onClick="window.open(this.href, this.target,'width=600,height=700'); return false;">2do provehido
+        despues de saber patente extra&nacute;a jurisdicci&oacute;n</a><br></p>
+      <p>Escritos Automaticos:</p>
+      <?php do { ?>
+      <?php if ($row_escrito['CLASIF'] != $clas) {
                 echo $row_escrito['CLASIF'] . '<br>';
             } ?>
-            <a href="../escritos/escritocomodin.php?exp=<?php echo $row_causa['ID']; ?>&esc=<?php echo $row_escrito['IDESC']; ?>"
-               target="popup"
-               onClick="window.open(this.href, this.target,'width=600,height=700'); return false;"><?php echo $row_escrito['ESCNOM']; ?></a>
-            <br><?php $clas = $row_escrito['CLASIF']; ?>
-        <?php } while ($row_escrito = mysql_fetch_assoc($escrito)); ?>
-        <p>Medidas de Prueba</p>
-        <p> Notificaciones</p>
+      <a href="../escritos/escritocomodin.php?exp=<?php echo $row_causa['ID']; ?>&esc=<?php echo $row_escrito['IDESC']; ?>"
+        target="popup"
+        onClick="window.open(this.href, this.target,'width=600,height=700'); return false;"><?php echo $row_escrito['ESCNOM']; ?></a>
+      <br><?php $clas = $row_escrito['CLASIF']; ?>
+      <?php } while ($row_escrito = mysql_fetch_assoc($escrito)); ?>
+      <p>Medidas de Prueba</p>
+      <p> Notificaciones</p>
     </fieldset>
     <fieldset>
-        <legend>ResoluciÃ³n de la Causa</legend>
-        <p><a href="../resoluciones/ing-resolu.php?exp=<?php echo $row_causa['ID']; ?>">Cargar Registro de
-                Infractores</a> - <a href="../resoluciones/ing-resolu-plus.php?exp=<?php echo $row_causa['ID']; ?>">Cargar
-                Resolución de Resultado Distinto</a></p>
+      <legend>ResoluciÃ³n de la Causa</legend>
+      <p><a href="../resoluciones/ing-resolu.php?exp=<?php echo $row_causa['ID']; ?>">Cargar Registro de
+          Infractores</a> - <a href="../resoluciones/ing-resolu-plus.php?exp=<?php echo $row_causa['ID']; ?>">Cargar
+          Resolucion de Resultado Distinto</a></p>
     </fieldset>
 
     <fieldset>
-        <legend>Actualizaciones</legend>
-        <table>
-            <tr>Cargo inicialmente: <?php echo $row_causa['USUR']; ?></tr>
-            <?php do { ?>
-                <tr>
-                <td align="right"><a href="../escritos/verbackups.php?exp=<?php echo $row_backs['IDESC']; ?>"
-                                     target="popup"
-                                     onClick="window.open(this.href, this.target,'width=800,height=700'); return false;"><?php echo $row_backs['CAMBFECHA']; ?></a>
-                </td>
-                <td align="right"><?php echo $row_backs['USUR']; ?></td>
-                </tr>
-            <?php } while ($row_backs = mysql_fetch_assoc($backs)); ?>
-        </table>
+      <legend>Actualizaciones</legend>
+      <table>
+        <tr>Cargo inicialmente: <?php echo $row_causa['USUR']; ?></tr>
+        <?php do { ?>
+        <tr>
+          <td align="right"><a href="../escritos/verbackups.php?exp=<?php echo $row_backs['IDESC']; ?>" target="popup"
+              onClick="window.open(this.href, this.target,'width=800,height=700'); return false;"><?php echo $row_backs['CAMBFECHA']; ?></a>
+          </td>
+          <td align="right"><?php echo $row_backs['USUR']; ?></td>
+        </tr>
+        <?php } while ($row_backs = mysql_fetch_assoc($backs)); ?>
+      </table>
     </fieldset>
-</div>
+  </div>
 </body>
+
 </html>
 
 <?php
