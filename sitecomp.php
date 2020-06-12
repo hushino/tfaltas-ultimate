@@ -204,7 +204,7 @@ $totalRows_infracc = mysql_num_rows($infracc);
         <input name="obla" type="radio" value="S" />Obladas<br>
         <input name="obla" type="radio" value="N" />No Obladas<br>
         Desde<input type="date" name="bdate1"> - hasta <input type="date" name="bdate2"><br>
-        Lugar de la Infracci�n <input type="text" name="domic"><br>
+        Lugar de la Infraccion <input type="text" name="domic"><br>
         <input type="submit" name="buscar" value="Filtrar" />
       </div>
 
