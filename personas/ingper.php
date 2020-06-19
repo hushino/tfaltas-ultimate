@@ -226,7 +226,7 @@ $totalRows_oppago = mysql_num_rows($oppago);
             <label for="basic-url">Acta de Inf. Nº</label>
             <div class="input-group mb-3">
             <!-- disabled -->
-              <input name="infacta" id="infacta" type="text" required="required"
+              <input name="infacta" id="infacta" type="text"
                 id="infacta" class="form-control" aria-describedby="basic-addon3" onFocusOut="javascript:verificar()"
                 autocomplete="off" />
               <div id="final"></div>
