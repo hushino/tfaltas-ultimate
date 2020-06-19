@@ -1,4 +1,4 @@
-<?php require_once('../Connections/tfx.php'); ?>
+﻿<?php require_once('../Connections/tfx.php'); ?>
 <?php
 if (!isset($_SESSION)) {
     session_start();
@@ -167,7 +167,7 @@ $totalRows_oppago = mysql_num_rows($oppago);
   <script type="text/javascript">
   $(document).ready(function() {
     $("#infartx").tokenInput("/tfaltas/consultas/listadeinfracciones.php", {
-      tokenLimit: 7
+      tokenLimit: 50//7
     });
   });
 
@@ -225,7 +225,8 @@ $totalRows_oppago = mysql_num_rows($oppago);
           <div class="col">
             <label for="basic-url">Acta de Inf. Nº</label>
             <div class="input-group mb-3">
-              <input name="infacta" required="required" autofocus id="infacta" type="text" required="required"
+            <!-- disabled -->
+              <input name="infacta" id="infacta" type="text" required="required"
                 id="infacta" class="form-control" aria-describedby="basic-addon3" onFocusOut="javascript:verificar()"
                 autocomplete="off" />
               <div id="final"></div>
@@ -234,7 +235,7 @@ $totalRows_oppago = mysql_num_rows($oppago);
           <div class="col">
             <label for="basic-url">Nº de expediente</label>
             <div class="input-group mb-3">
-              <input class="form-control" name="IDx" required="required" autofocus type="text" required="required"
+              <input class="form-control" name="IDx" autofocus type="text"
                 id="IDxx" />
             </div>
           </div>
@@ -242,13 +243,13 @@ $totalRows_oppago = mysql_num_rows($oppago);
             <div class="col">
               <label for="basic-url">Fecha</label>
               <div class="input-group">
-                <input class="form-control" name="inffecha" type="date" required="required" id="infdate" />
+                <input class="form-control" name="inffecha" type="date"  id="infdate" />
               </div>
             </div>
             <div class="col">
               <label for="basic-url">Hora</label>
               <div class="input-group ">
-                <input class="form-control" name="infhora" type="time" required="required" id="infhora"
+                <input class="form-control" name="infhora" type="time"  id="infhora"
                   autocomplete="off" />
               </div>
             </div>
@@ -257,13 +258,13 @@ $totalRows_oppago = mysql_num_rows($oppago);
           <div class="col">
             <label for="basic-url">Lugar en que se cometió la falta</label>
             <div class="input-group mb-3">
-              <input class="form-control" name="influg" type="text" required="required" id="influg" />
+              <input class="form-control" name="influg" type="text" id="influg" />
             </div>
           </div>
           <div class="col">
             <label for="basic-url">Infracción</label>
             <div class="input-group mb-3">
-              <input class="form-control" name="infart" type="text" id="infartx" required="required" />
+              <input class="form-control" name="infart" type="text" id="infartx" />
             </div>
           </div>
 
@@ -462,11 +463,7 @@ $totalRows_oppago = mysql_num_rows($oppago);
               </div>
             </div>
           </div>
-
-
-
         </div>
-
 
         <button type="button" name="button" id="button" onclick="history.back()"
           class="btn btn-danger btn-rounded">Volver

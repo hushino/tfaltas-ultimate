@@ -18,7 +18,7 @@ mysql_select_db($bd_base, $con);
 
 //consulta todos los empleados
 
-$sql=mysql_query("SELECT IDINF, CONCAT(ART,' - ', HIPOTESIS) AS namesx FROM infrac WHERE VIGENCIA = 'S' AND ART LIKE '%".$_GET["q"]."%' OR HIPOTESIS LIKE '%".$_GET["q"]."%' LIMIT 20",$con);
+$sql=mysql_query("SELECT IDINF, CONCAT(ART,' - ', HIPOTESIS) AS namesx FROM infrac WHERE VIGENCIA = 'S' AND ART LIKE '%".$_GET["q"]."%' OR HIPOTESIS LIKE '%".$_GET["q"]."%' LIMIT 30",$con);
 mysql_query("SET namesx 'utf8'");
 //muestra los datos consultados
 
