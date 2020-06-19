@@ -167,7 +167,8 @@ $totalRows_oppago = mysql_num_rows($oppago);
   <script type="text/javascript">
   $(document).ready(function() {
     $("#infartx").tokenInput("/tfaltas/consultas/listadeinfracciones.php", {
-      tokenLimit: 50//7
+      minChars: 1,
+      tokenLimit: 50 //7
     });
   });
 

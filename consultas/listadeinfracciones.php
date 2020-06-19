@@ -17,19 +17,17 @@ mysql_query("SET NAMES 'utf8'");
 mysql_select_db($bd_base, $con);
 
 //consulta todos los empleados
+// Get search term
+$searchTerm = $_GET['q'];
 
-$sql=mysql_query("SELECT IDINF, CONCAT(ART,' - ', HIPOTESIS) AS namesx FROM infrac WHERE VIGENCIA = 'S' AND ART LIKE '%".$_GET["q"]."%' OR HIPOTESIS LIKE '%".$_GET["q"]."%' LIMIT 30",$con);
+$sql=mysql_query("SELECT IDINF, CONCAT(ART,' - ', HIPOTESIS) AS namesx FROM infrac WHERE VIGENCIA = 'S' AND ART LIKE '%$searchTerm%' OR HIPOTESIS LIKE '%".$searchTerm."%' LIMIT 30",$con);
 mysql_query("SET namesx 'utf8'");
 //muestra los datos consultados
 
 echo "[";
 
 while($row = mysql_fetch_array($sql)){
-
         echo "{\"id\": \"".$row['IDINF']."\", \"name\": \"".$row['namesx']."\"}, ";
-
-
-
 }
 
 
