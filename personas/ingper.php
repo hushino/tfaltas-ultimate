@@ -83,13 +83,22 @@ if (isset($_SERVER['QUERY_STRING'])) {
 }
 
 if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "formulario")) {
+
+    $dpndenciadeorigen = $_POST['deporig'];
+    $infraccion = $_POST['infart'];
+
+    if ($dpndenciadeorigen == 113) {
+      //6.7.1.62 S.E.M
+      $infraccion = "00203";
+    }
+
     $insertSQL = sprintf("INSERT INTO causas (DEPORIG, INFACTA, INFFECHA, INFHORA, INFLUG, INFART, INFVEHI, INFAUTOPAT, INFOBSER, APELLIDOS, NOMBRES, DNI, DIRCALLE, DIRNRO, DIRPISO, DIRDPTO, DIRMZ, DIRCS, DIRMBK, LOCALIDAD, DESCPROVINCIA, OBLADA, DNINAC, RETLICE, RETVEHI,FECHASIEN,OBLATIPO,OBLANRO,USUR) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, now(),%s, %s, %s)",
-        GetSQLValueString($_POST['deporig'], "text"),
+        GetSQLValueString( $dpndenciadeorigen, "text"),
         GetSQLValueString($_POST['infacta'], "text"),
         GetSQLValueString($_POST['inffecha'], "date"),
         GetSQLValueString($_POST['infhora'], "date"),
         GetSQLValueString($_POST['influg'], "text"),
-        GetSQLValueString($_POST['infart'], "text"),
+        GetSQLValueString($infraccion, "text"),
         GetSQLValueString($_POST['infvehi'], "text"),
         GetSQLValueString($_POST['infautopat'], "text"),
         GetSQLValueString($_POST['infobser'], "text"),
@@ -117,12 +126,12 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "formulario")) {
     $Result1 = mysql_query($insertSQL, $tfx) or die(mysql_error());
     $Result2 = mysql_query($insertSQL2, $tfx) or die(mysql_error());
 
-    $insertGoTo = "../sitecomp.php";
+    /* $insertGoTo = "../sitecomp.php";
     if (isset($_SERVER['QUERY_STRING'])) {
         $insertGoTo .= (strpos($insertGoTo, '?')) ? "&" : "?";
         $insertGoTo .= $_SERVER['QUERY_STRING'];
     }
-    header(sprintf("Location: %s", $insertGoTo));
+    header(sprintf("Location: %s", $insertGoTo)); */
 }
 
 mysql_select_db($database_tfx, $tfx);
@@ -152,6 +161,13 @@ $totalRows_oppago = mysql_num_rows($oppago);
   <meta charset="utf-8">
   <title>T Faltas - Infracciones</title>
 
+<script>
+function verificar(){
+      $.ajax({type: "GET",url:"vef.php",data:"infacta="+document.formulario.infacta.value,success:function(msg){
+         $("#final").html(msg);
+      }})
+   }
+</script>
   <?php require_once('../modules/header.php'); ?>
 
   <link href="../css/tfaltas.css" rel="stylesheet" type="text/css">
@@ -168,7 +184,7 @@ $totalRows_oppago = mysql_num_rows($oppago);
   $(document).ready(function() {
     $("#infartx").tokenInput("/tfaltas/consultas/listadeinfracciones.php", {
       minChars: 1,
-      tokenLimit: 50 //7
+      tokenLimit: 7 //7
     });
   });
 
@@ -227,16 +243,16 @@ $totalRows_oppago = mysql_num_rows($oppago);
             <label for="basic-url">Acta de Inf. Nº</label>
             <div class="input-group mb-3">
             <!-- disabled -->
-              <input name="infacta" id="infacta"  type="text"
-                id="infacta" class="form-control" aria-describedby="basic-addon3" onFocusOut="javascript:verificar()"
-                autocomplete="off" />
+              <input name="infacta" required id="infacta" type="text"
+                id="infacta" class="form-control" aria-describedby="basic-addon3" onblur="verificar()" onfocusin="verificar()" onFocusOut="verificar()"
+                autocomplete="on" />
               <div id="final"></div>
             </div>
           </div>
           <div class="col">
             <label for="basic-url">Nº de expediente</label>
             <div class="input-group mb-3">
-              <input class="form-control" name="IDx" autofocus type="text"
+              <input required class="form-control" name="IDx" autofocus type="text"
                 id="IDxx" />
             </div>
           </div>
@@ -244,13 +260,13 @@ $totalRows_oppago = mysql_num_rows($oppago);
             <div class="col">
               <label for="basic-url">Fecha</label>
               <div class="input-group">
-                <input class="form-control" name="inffecha" type="date"  id="infdate" />
+                <input required class="form-control" name="inffecha" type="date"  id="infdate" />
               </div>
             </div>
             <div class="col">
               <label for="basic-url">Hora</label>
               <div class="input-group ">
-                <input class="form-control" name="infhora" type="time"  id="infhora"
+                <input required class="form-control" name="infhora" type="time"  id="infhora"
                   autocomplete="off" />
               </div>
             </div>
@@ -259,13 +275,13 @@ $totalRows_oppago = mysql_num_rows($oppago);
           <div class="col">
             <label for="basic-url">Lugar en que se cometió la falta</label>
             <div class="input-group mb-3">
-              <input class="form-control" name="influg" type="text" id="influg" />
+              <input required class="form-control" name="influg" type="text" id="influg" />
             </div>
           </div>
           <div class="col">
             <label for="basic-url">Infracción</label>
             <div class="input-group mb-3">
-              <input class="form-control" name="infart" type="text" id="infartx" />
+              <input required class="form-control" name="infart" type="text" id="infartx" />
             </div>
           </div>
 
@@ -383,7 +399,7 @@ $totalRows_oppago = mysql_num_rows($oppago);
             <div class="col">
               <label for="basic-url">Doc.Nac.</label>
               <div class="input-group">
-                <input class="form-control" autocomplete="off" pattern="[A-Z]{3}" value="ARG" name="dninac" type="text"
+                <input class="form-control" autocomplete="on" pattern="[A-Z]{3}" value="ARG" name="dninac" type="text"
                   id="dninac" />
               </div>
             </div>
